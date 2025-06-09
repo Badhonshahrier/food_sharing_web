@@ -1,11 +1,30 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, userLogout } = use(AuthContext);
+  const handleLogout = () => {
+    userLogout()
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Logout Successfully",
+                  showConfirmButton: false,
+                  timer: 1000,
+                })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const links = (
     <div className="text-sm lg:pl-25 flex font-bold italic">
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
         <NavLink to="/availablefoods">Available Foods</NavLink>
@@ -67,18 +86,27 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end gap-4">
-          <Link to="/login">
-            <button className="btn btn-outline btn-secondary text-white">
-              Login
-            </button>
-          </Link>
-          <Link to="/register">
-            <button className="btn btn-outline btn-warning text-white">
-              Register
-            </button>
-          </Link>
-        </div>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="btn btn-outline btn-error text-white"
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="btn btn-outline btn-secondary text-white">
+                Login
+              </button>
+            </Link>
+            <Link to="/register">
+              <button className="btn btn-outline btn-warning text-white">
+                Register
+              </button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

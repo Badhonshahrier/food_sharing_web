@@ -1,12 +1,35 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
 
 const AddFoods = () => {
+  const { user } = use(AuthContext);
+  const handleAddFood = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const newFood = Object.fromEntries(formData.entries());
+
+    axios
+      .post("http://localhost:5000/addfoods", newFood)
+      .then((res) => {
+        console.log("Successfully added food:", res.data);
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error adding food:", error);
+      });
+  };
+
   return (
     <div className="max-w-2xl mx-auto py-12">
       <h2 className="text-3xl font-bold text-center text-teal-600 mb-8">
         Add New Food
       </h2>
-      <form className="card p-8 bg-base-100 shadow-xl space-y-4">
+      <form
+        onSubmit={handleAddFood}
+        className="card p-8 bg-base-100 shadow-xl space-y-4"
+      >
         <input
           type="text"
           name="name"
@@ -57,6 +80,8 @@ const AddFoods = () => {
         <input
           type="text"
           name="donorName"
+          defaultValue={user ? user.displayName : ""}
+          readOnly
           placeholder="Donor Name"
           className="input input-bordered w-full"
           required
@@ -64,6 +89,8 @@ const AddFoods = () => {
         <input
           type="email"
           name="donorEmail"
+          defaultValue={user ? user.email : ""}
+          readOnly
           placeholder="Donor Email"
           className="input input-bordered w-full"
           required
