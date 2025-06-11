@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, userProfile } = use(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -39,6 +39,11 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
+        const createdUser = result.user;
+        userProfile({
+          displayName: name,
+          photoURL: photoURL,
+        });
         Swal.fire({
           position: "center",
           icon: "success",

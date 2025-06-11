@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
+  const [availableFoods, setAvailableFoods] = useState([]);
 
   useEffect(() => {
     axios
@@ -12,6 +14,16 @@ const AvailableFoods = () => {
       })
       .catch((error) => {
         console.error(error);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/addfoods/available")
+      .then((res) => {
+        setAvailableFoods(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
@@ -32,7 +44,6 @@ const AvailableFoods = () => {
                 />
               </figure>
               <div className="card-body flex flex-col justify-between text-white">
-                {/* Category Badge */}
                 <div className="flex justify-between items-center">
                   <h2 className="card-title text-xl">{food.name}</h2>
                   <span className="badge badge-secondary text-xs py-1 px-3 rounded-full">
@@ -40,10 +51,8 @@ const AvailableFoods = () => {
                   </span>
                 </div>
 
-                {/* Description */}
                 <p className="text-sm line-clamp-3">{food.description}</p>
 
-                {/* Details */}
                 <div className="mt-3 space-y-1 text-sm">
                   <p>
                     <span className="font-semibold">Available:</span>{" "}
@@ -64,6 +73,33 @@ const AvailableFoods = () => {
                 </div>
               </div>
             </div>
+          </div>
+        ))}
+
+        {/* add korer por availability and expairy date diye kora */}
+
+        {availableFoods.map((availableFood, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center justify-center"
+          >
+            <img
+              src={availableFood.imageURL}
+              alt={availableFood.name}
+              className="w-32 h-32 object-cover rounded-lg mb-4"
+            />
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              {availableFood.name}
+            </h2>
+            <p className="text-gray-600 mb-2">{availableFood.notes}</p>
+            <p className="text-green-600 font-bold text-lg">
+              ৳ {availableFood.price}
+            </p>
+            <Link to={`/food_details/${availableFood._id}`}>
+              <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
+                View Details
+              </button>
+            </Link>
           </div>
         ))}
       </div>

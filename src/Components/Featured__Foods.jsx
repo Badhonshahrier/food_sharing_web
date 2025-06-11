@@ -68,8 +68,10 @@ const Featured__Foods = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center">
-        <Link to="/availablefoods"><button className="btn btn-accent">Show All</button></Link>
+      <div className="flex justify-center items-center pb-10">
+        <Link to="/availablefoods">
+          <button className="btn btn-accent">Show All</button>
+        </Link>
       </div>
     </>
   );

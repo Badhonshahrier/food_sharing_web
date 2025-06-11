@@ -10,19 +10,19 @@ const Navbar = () => {
       .then((result) => {
         console.log(result);
         Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Logout Successfully",
-                  showConfirmButton: false,
-                  timer: 1000,
-                })
+          position: "center",
+          icon: "success",
+          title: "Logout Successfully",
+          showConfirmButton: false,
+          timer: 1000,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
   };
   const links = (
-    <div className="text-sm lg:pl-25 flex font-bold italic">
+    <div className="text-sm flex font-bold italic">
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -76,8 +76,7 @@ const Navbar = () => {
               alt=""
             />
             <h3
-              className="lg:font-bold lg:text-2xl sm:text-sm
-"
+              className="lg:font-bold lg:text-2xl sm:text-sm"
             >
               Give Surplus, Get Smiles!
             </h3>
@@ -87,16 +86,26 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         {user ? (
-          <button
-            onClick={handleLogout}
-            className="btn btn-outline btn-error text-white"
+          <div
+            tabIndex={0}
+            role="button"
+            className="avatar"
+            
           >
-            Logout
-          </button>
+            <div className="w-10 rounded-full">
+              <img src={user.photoURL} alt="profile" className="object-cover" />
+            </div>
+            <button
+              onClick={handleLogout}
+              className="btn btn-outline btn-error ml-6 text-white"
+            >
+              Logout
+            </button>
+          </div>
         ) : (
-          <>
+          <div className="">
             <Link to="/login">
-              <button className="btn btn-outline btn-secondary text-white">
+              <button className="btn btn-outline btn-secondary mr-6  text-white">
                 Login
               </button>
             </Link>
@@ -105,7 +114,7 @@ const Navbar = () => {
                 Register
               </button>
             </Link>
-          </>
+          </div>
         )}
       </div>
     </div>

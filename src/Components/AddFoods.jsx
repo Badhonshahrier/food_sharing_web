@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddFoods = () => {
   const { user } = use(AuthContext);
@@ -14,7 +15,14 @@ const AddFoods = () => {
       .post("http://localhost:5000/addfoods", newFood)
       .then((res) => {
         console.log("Successfully added food:", res.data);
-        form.reset();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+        form.reset()
       })
       .catch((error) => {
         console.error("Error adding food:", error);
@@ -51,6 +59,15 @@ const AddFoods = () => {
           className="input input-bordered w-full"
           required
         />
+        <select
+          name="status"
+          className="select select-bordered w-full"
+          defaultValue="Available"
+          required
+        >
+          <option value="Available">Available</option>
+        </select>
+
         <input
           type="text"
           name="location"
@@ -59,7 +76,7 @@ const AddFoods = () => {
           required
         />
         <input
-          type="datetime-local"
+          type="date"
           name="expiryDate"
           className="input input-bordered w-full"
           required
@@ -73,8 +90,10 @@ const AddFoods = () => {
         <input
           type="text"
           name="donorImage"
+          defaultValue={user ? user.photoURL : ""}
+          readOnly
           placeholder="Donor Image URL"
-          className="input input-bordered w-full"
+          className="input cursor-not-allowed input-bordered w-full"
           required
         />
         <input
@@ -83,7 +102,7 @@ const AddFoods = () => {
           defaultValue={user ? user.displayName : ""}
           readOnly
           placeholder="Donor Name"
-          className="input input-bordered w-full"
+          className="input  cursor-not-allowed input-bordered w-full"
           required
         />
         <input
@@ -92,7 +111,7 @@ const AddFoods = () => {
           defaultValue={user ? user.email : ""}
           readOnly
           placeholder="Donor Email"
-          className="input input-bordered w-full"
+          className="input cursor-not-allowed input-bordered w-full"
           required
         />
 
