@@ -1,11 +1,11 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { userLogin, googleLogin } = use(AuthContext);
-
+const navigate=useNavigate()
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,7 +20,9 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1000,
         });
+        navigate("/")
         console.log(result);
+        
       })
       .catch((error) => {
         Swal.fire({
@@ -43,6 +45,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1000,
         });
+        navigate('/')
         console.log(result);
       })
       .catch((error) => {

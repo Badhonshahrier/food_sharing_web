@@ -6,6 +6,10 @@ import Register from "../Pages/Register";
 import AvailableFoods from "../Components/AvailableFoods";
 import AddFoods from "../Components/AddFoods";
 import View_Details from "../Pages/View_Details";
+import Modal from "../Components/Modal";
+import MyFoodRequest from "../Components/MyFoodRequest";
+import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
+import ManageMyFood from "../Components/ManageMyFood";
 
 export const router = createBrowserRouter([
   {
@@ -31,13 +35,39 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addfood",
-        Component: AddFoods,
+        element: (
+          <PrivateRoutes>
+            <AddFoods></AddFoods>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/food_details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/addfoods/available/${params.id}`),
         Component: View_Details,
+      },
+      {
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addfoods/available/${params.id}`),
+        Component: Modal,
+      },
+      {
+        path: "/myfoodrequest/",
+        element: (
+          <PrivateRoutes>
+            <MyFoodRequest></MyFoodRequest>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/managemyfoods",
+        loader: () => fetch("http://localhost:5000/addfoods/available"),
+        element: (
+          <PrivateRoutes>
+            <ManageMyFood></ManageMyFood>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

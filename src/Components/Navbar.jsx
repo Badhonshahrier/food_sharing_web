@@ -33,10 +33,10 @@ const Navbar = () => {
         <NavLink to="/addfood">Add Food</NavLink>
       </li>
       <li>
-        <NavLink>Manage My Foods</NavLink>
+        <NavLink to="/managemyfoods">Manage My Foods</NavLink>
       </li>
       <li>
-        <NavLink>My Food Request</NavLink>
+        <NavLink to="/myfoodrequest">My Food Request</NavLink>
       </li>
     </div>
   );
@@ -103,9 +103,9 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="">
+          <div className="flex gap-6">
             <Link to="/login">
-              <button className="btn btn-outline btn-secondary mr-6  text-white">
+              <button className="btn btn-outline btn-secondary  text-white">
                 Login
               </button>
             </Link>
