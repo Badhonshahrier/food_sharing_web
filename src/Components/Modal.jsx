@@ -35,9 +35,9 @@ const Modal = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your work has been saved",
+          title: "You have been successfully requested",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 1000,
         });
         navigate("/myfoodrequest");
       })

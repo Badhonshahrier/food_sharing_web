@@ -28,14 +28,21 @@ const AvailableFoods = () => {
   }, []);
 
   return (
-    <>
-      <h1 className="text-4xl font-extrabold text-center text-teal-600 py-10">
-        Featured Foods
+    <div className="w-10/11  mx-auto">
+      <h1 className="text-4xl font-extrabold text-center text-teal-600 pt-10">
+        Available Foods
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-20">
+      <p className="text-center font-medium text-gray-500 pt-6 w-3/4 ml-36">
+        Discover a variety of fresh, surplus foods shared by generous donors in
+        your community. Browse available foods, pick what you need, and reduce
+        food waste while helping others. From fruits to cooked meals — find
+        what’s available today and request it before it’s gone. Share, save, and
+        care.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-10">
         {foods.map((food, index) => (
           <div key={index} className="w-full">
-            <div className="card bg-base-100 shadow-xl image-full transition duration-300 hover:scale-105">
+            {/* <div className="card bg-base-100 shadow-xl image-full transition duration-300 hover:scale-105">
               <figure>
                 <img
                   src={food.imageURL}
@@ -43,7 +50,7 @@ const AvailableFoods = () => {
                   className="object-cover w-full h-56"
                 />
               </figure>
-              <div className="card-body flex flex-col justify-between text-white">
+              <div className="card-body flex  flex-col justify-between text-white">
                 <div className="flex justify-between items-center">
                   <h2 className="card-title text-xl">{food.name}</h2>
                   <span className="badge badge-secondary text-xs py-1 px-3 rounded-full">
@@ -72,7 +79,7 @@ const AvailableFoods = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
 
@@ -81,19 +88,19 @@ const AvailableFoods = () => {
         {availableFoods.map((availableFood, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center justify-center"
+            className="bg-gradient-to-r from-gray-100 to-sky-300 my-10 shadow-lg rounded-2xl p-4 flex flex-col items-center justify-center"
           >
             <img
               src={availableFood.imageURL}
               alt={availableFood.name}
-              className="w-32 h-32 object-cover rounded-lg mb-4"
+              className="w-32 h-32 object-cover rounded-lg "
             />
             <h2 className="text-xl font-semibold text-gray-800 mb-2">
               {availableFood.name}
             </h2>
             <p className="text-gray-600 mb-2">{availableFood.notes}</p>
-            <p className="text-green-600 font-bold text-lg">
-              ৳ {availableFood.price}
+            <p className="text-violet-700 font-medium text-lg">
+              expiryDate :  {availableFood.expiryDate}
             </p>
             <Link to={`/food_details/${availableFood._id}`}>
               <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
@@ -103,7 +110,7 @@ const AvailableFoods = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

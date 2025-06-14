@@ -10,6 +10,7 @@ import Modal from "../Components/Modal";
 import MyFoodRequest from "../Components/MyFoodRequest";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 import ManageMyFood from "../Components/ManageMyFood";
+import UpdateFood from "../Components/UpdateFood";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,12 @@ export const router = createBrowserRouter([
             <ManageMyFood></ManageMyFood>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/updatefood/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addfoods/available/${params.id}`),
+        Component: UpdateFood,
       },
     ],
   },

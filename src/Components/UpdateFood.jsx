@@ -1,49 +1,64 @@
 import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useLoaderData, useNavigate } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const AddFoods = () => {
+const UpdateFood = () => {
+    const navigate=useNavigate()
+  const {
+    _id,
+    name,
+    imageURL,
+    quantityAvailable,
+    status,
+    location,
+    expiryDate,
+    notes,
+    donorImage,
+    donorName,
+    donorEmail,
+    foodId,
+    requestDate,
+    requesterEmail,
+  } = useLoaderData();
   const { user } = use(AuthContext);
-  const handleAddFood = (e) => {
+  const handleUpdateFood = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const newFood = Object.fromEntries(formData.entries());
-    newFood.quantityAvailable = Number(newFood.quantityAvailable);
-
+    const updateFood = Object.fromEntries(formData.entries());
+    updateFood.quantityAvailable = Number(updateFood.quantityAvailable);
+    console.log(updateFood);
     axios
-      .post("http://localhost:5000/addfoods", newFood)
+      .put(`http://localhost:5000/updatefood/${_id}`, updateFood)
       .then((res) => {
-        console.log("Successfully added food:", res.data);
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your work has been saved",
+          title: "Successfully Updated Data",
           showConfirmButton: false,
           timer: 1000,
         });
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Error adding food:", error);
+        navigate("/managemyfoods")
+        console.log(res.data);
       });
   };
-
   return (
     <div className="max-w-2xl mx-auto py-12">
       <h2 className="text-3xl font-bold text-center text-teal-600 mb-8">
-        Add New Food
+        Update Food
       </h2>
-     <p className="text-center font-medium text-gray-500 mb-6">
-        Add new food donations with simple forms. Share details like quantity, pickup location, and expiry date. This easy-to-use feature encourages more food sharing, helps reduce food waste, and connects surplus food to people who can use it most.
+      <p className="text-center font-medium text-gray-500 mb-6">
+       Keep your food listings accurate by updating details anytime. Modify quantities, change availability status, or correct information to ensure donors and recipients have the latest updates. This helps maintain trust and efficiency in the food sharing community.
       </p>
       <form
-        onSubmit={handleAddFood}
+        onSubmit={handleUpdateFood}
         className="card p-8 bg-base-100 shadow-xl space-y-4"
       >
         <input
           type="text"
+          defaultValue={name}
           name="name"
           placeholder="Food Name"
           className="input input-bordered w-full"
@@ -51,6 +66,7 @@ const AddFoods = () => {
         />
         <input
           type="text"
+          defaultValue={imageURL}
           name="imageURL"
           placeholder="Food Image URL"
           className="input input-bordered w-full"
@@ -58,6 +74,7 @@ const AddFoods = () => {
         />
         <input
           type="number"
+          defaultValue={quantityAvailable}
           name="quantityAvailable"
           placeholder="Food Quantity"
           className="input input-bordered w-full"
@@ -65,8 +82,8 @@ const AddFoods = () => {
         />
         <select
           name="status"
+          defaultValue={status}
           className="select select-bordered w-full"
-          defaultValue="Available"
           required
         >
           <option value="Available">Available</option>
@@ -75,6 +92,7 @@ const AddFoods = () => {
         <input
           type="text"
           name="location"
+          defaultValue={location}
           placeholder="Pickup Location"
           className="input input-bordered w-full"
           required
@@ -82,11 +100,13 @@ const AddFoods = () => {
         <input
           type="date"
           name="expiryDate"
+          defaultValue={expiryDate}
           className="input input-bordered w-full"
           required
         />
         <textarea
           name="notes"
+          defaultValue={notes}
           placeholder="Additional Notes"
           className="textarea textarea-bordered w-full"
         ></textarea>
@@ -120,11 +140,11 @@ const AddFoods = () => {
         />
 
         <button type="submit" className="btn btn-primary w-full">
-          Add Food
+          update Food
         </button>
       </form>
     </div>
   );
 };
 
-export default AddFoods;
+export default UpdateFood;
