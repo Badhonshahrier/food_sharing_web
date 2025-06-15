@@ -8,10 +8,17 @@ const View_Details = () => {
 
   return (
     <div className="my-10 px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-center items-center mb-8">
-        <h1 className="text-4xl pl-4 font-extrabold text-green-800">
+      <h1 className="text-4xl text-center pl-4 font-extrabold text-green-800">
           Food Details
         </h1>
+        <p className="text-center font-medium text-gray-500 w-4/6 lg:ml-60 ml-18">
+          "Discover detailed information about each shared food item, including
+          its name, quantity, pickup location, expiry date, and donor details.
+          Our platform ensures transparency and safety by providing clear notes
+          and images for every food listing.
+        </p>
+      <div className="flex justify-center items-center mb-8">
+        
       </div>
 
       {data ? (
@@ -77,11 +84,18 @@ const View_Details = () => {
                 </button>
                 <dialog id="my_modal_4" className="modal">
                   <div className="modal-box w-11/12 max-w-5xl">
+                    <button
+                      className="btn btn-circle bg-red-600 text-white absolute right-2 top-2"
+                      onClick={() =>
+                        document.getElementById("my_modal_4").close()
+                      }
+                    >
+                      ✕
+                    </button>
                     <p className="py-4">
                       <Modal></Modal>
                     </p>
-                    <div className="modal-action">
-                    </div>
+                    <div className="modal-action"></div>
                   </div>
                 </dialog>
               </div>

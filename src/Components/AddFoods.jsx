@@ -40,7 +40,7 @@ const AddFoods = () => {
       </p>
       <form
         onSubmit={handleAddFood}
-        className="card p-8 bg-base-100 shadow-xl space-y-4"
+        className="card p-8 bg-base-300 shadow-xl space-y-4"
       >
         <input
           type="text"

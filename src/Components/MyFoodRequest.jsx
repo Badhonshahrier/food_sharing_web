@@ -30,7 +30,7 @@ const MyFoodRequest = () => {
           >
             <div className="p-5 space-y-3">
               <h3 className="text-sm flex justify-between font-medium text-green-700">
-                Donor: {request.donorName || request.requesterEmail}
+                Donar Name : {request.donorName || request.requesterEmail}
               
                 <span className="bg-green-100 font-bold text-green-800 px-3 py-1 rounded-2xl">
                   {request.status}

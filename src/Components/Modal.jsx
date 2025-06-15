@@ -48,9 +48,15 @@ const Modal = () => {
 
   return (
     <div>
+      <h1 className="text-4xl font-extrabold text-center text-teal-600">
+        Request For Food
+      </h1>
+      <p className="text-center font-medium text-gray-500 pt-3 w-3/4 pb-6 ml-36">
+      "Need a helping hand with food? Browse available items in your area and easily request what you need. Our community believes in sharing and caring, making sure no one goes hungry. Requesting food is simple, safe, and free — because good food should never go to waste."
+      </p>
       <form
         onSubmit={handleUpdateFood}
-        className="card p-8 shadow-xl space-y-4"
+        className="card p-8 bg-base-300 shadow-xl space-y-4"
       >
         <input
           type="text"
@@ -130,11 +136,9 @@ const Modal = () => {
           className="textarea textarea-bordered w-full"
         ></textarea>
 
-     
-          <button type="submit" className="btn btn-primary w-full">
-            Request Food
-          </button>
-        
+        <button type="submit" className="btn btn-primary w-full">
+          Request Food
+        </button>
       </form>
     </div>
   );
