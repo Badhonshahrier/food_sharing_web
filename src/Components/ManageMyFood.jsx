@@ -7,12 +7,19 @@ import Swal from "sweetalert2";
 
 const ManageMyFood = () => {
   const { user } = use(AuthContext);
+  console.log("manageMyfood", user.accessToken);
   const [myFoods, setMyFoods] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://food-sharing-server-nu.vercel.app/my_foods?email=${user.email}`)
+      .get(
+        `https://food-sharing-server-nu.vercel.app/my_foods?email=${user.email}`,{
+          headers:{
+            authorization:`Bearer ${user.accessToken}`
+          }
+        }
+      )
       .then((res) => setMyFoods(res.data));
-  }, [user.email]);
+  }, [user.email,user.accessToken]);
   const handleDelete = (id) => {
     console.log(id);
     Swal.fire({
@@ -25,10 +32,16 @@ const ManageMyFood = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://food-sharing-server-nu.vercel.app/managefood/${id}`).then(() => {
-          const remaining = myFoods.filter((food) => food._id !== id);
-          setMyFoods(remaining);
-        });
+        axios
+          .delete(`https://food-sharing-server-nu.vercel.app/managefood/${id}`,{
+            headers:{
+              authorization:`Bearer ${user.accessToken}`
+            }
+          })
+          .then(() => {
+            const remaining = myFoods.filter((food) => food._id !== id);
+            setMyFoods(remaining);
+          });
 
         Swal.fire({
           title: "Deleted!",
@@ -44,7 +57,10 @@ const ManageMyFood = () => {
         Manage My Foods
       </h2>
       <p className="text-center font-medium text-gray-500 w-3/4 ml-36">
-        Manage your donated foods effortlessly. Update food details, monitor expiry dates, or delete items that are no longer available. Keep your food donations organized and visible to those in need, making your contribution to the community smooth and impactful.
+        Manage your donated foods effortlessly. Update food details, monitor
+        expiry dates, or delete items that are no longer available. Keep your
+        food donations organized and visible to those in need, making your
+        contribution to the community smooth and impactful.
       </p>
 
       <div className="overflow-x-auto rounded-2xl shadow-lg mt-10  bg-white">
@@ -70,8 +86,9 @@ const ManageMyFood = () => {
                   />
 
                   <div>
-                    <h4 className="font-bold text-md  text-gray-800">{food.name}</h4>
-                  
+                    <h4 className="font-bold text-md  text-gray-800">
+                      {food.name}
+                    </h4>
 
                     <div className="flex items-center gap-2">
                       <img

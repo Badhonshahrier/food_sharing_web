@@ -55,7 +55,8 @@ const AvailableFoods = () => {
           onClick={handleToggleColumn}
           className="px-6 py-3 bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-full shadow-lg hover:scale-105 transition"
         >
-          {isTwoColumn ? "Change_layout" : "Change_Layout"}
+          Change_layout
+  
         </button>
       </div>
 

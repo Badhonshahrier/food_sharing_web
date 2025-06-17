@@ -54,17 +54,17 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      if (currentUser?.email) {
-        const userData = { email: currentUser.email };
-        axios
-          .post("https://food-sharing-server-nu.vercel.app/jwt", userData)
-          .then((res) => {
-            console.log("toke after jwt",res.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
+      // if (currentUser?.email) {
+      //   const userData = { email: currentUser.email };
+      //   axios
+      //     .post("https://food-sharing-server-nu.vercel.app/jwt", userData)
+      //     .then((res) => {
+      //       console.log("toke after jwt",res.data);
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+      //     });
+      // }
     });
     return () => {
       unsubscribe();

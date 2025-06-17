@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 
 const AddFoods = () => {
   const { user } = use(AuthContext);
+  
   const navigate=useNavigate()
   console.log("token in the context", user.accessToken);
   const handleAddFood = (e) => {
