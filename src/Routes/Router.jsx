@@ -11,10 +11,12 @@ import MyFoodRequest from "../Components/MyFoodRequest";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 import ManageMyFood from "../Components/ManageMyFood";
 import UpdateFood from "../Components/UpdateFood";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <Main_Layout></Main_Layout>,
     children: [
       {
@@ -45,7 +47,9 @@ export const router = createBrowserRouter([
       {
         path: "/food_details/:id",
         loader: ({ params }) =>
-          fetch(`https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`),
+          fetch(
+            `https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <View_Details />
@@ -53,8 +57,11 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/requestfood/:id",
         loader: ({ params }) =>
-          fetch(`https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`),
+          fetch(
+            `https://food-sharing-server-nu.vercel.app/foods/available/${params.id}`
+          ),
         Component: Modal,
       },
       {
@@ -67,7 +74,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/managemyfoods",
-        loader: () => fetch("https://food-sharing-server-nu.vercel.app/addfoods/available"),
+        loader: () =>
+          fetch("https://food-sharing-server-nu.vercel.app/addfoods/available"),
         element: (
           <PrivateRoutes>
             <ManageMyFood></ManageMyFood>
@@ -77,7 +85,9 @@ export const router = createBrowserRouter([
       {
         path: "/updatefood/:id",
         loader: ({ params }) =>
-          fetch(`https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`),
+          fetch(
+            `https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`
+          ),
         Component: UpdateFood,
       },
     ],

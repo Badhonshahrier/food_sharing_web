@@ -48,7 +48,7 @@ const AvailableFoods = () => {
           value={searchText}
           onChange={handleSearch}
           placeholder="Search food by name..."
-          className="border-2 border-emerald-300 rounded-xl p-3 w-full md:w-1/2 text-center focus:ring-2 focus:ring-emerald-400 outline-none"
+          className="border-2 border-emerald-300 rounded-xl p-3 w-full md:w-1/5 text-center focus:ring-2 focus:ring-emerald-400 outline-none"
         />
 
         <button

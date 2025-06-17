@@ -2,9 +2,11 @@ import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const AddFoods = () => {
   const { user } = use(AuthContext);
+  const navigate=useNavigate()
   console.log("token in the context", user.accessToken);
   const handleAddFood = (e) => {
     e.preventDefault();
@@ -28,7 +30,8 @@ const AddFoods = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        // form.reset();
+        navigate('/availablefoods')
+        form.reset();
       })
       .catch((error) => {
         console.error("Error adding food:", error);
