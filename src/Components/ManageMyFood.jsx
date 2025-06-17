@@ -10,7 +10,7 @@ const ManageMyFood = () => {
   const [myFoods, setMyFoods] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/my_foods?email=${user.email}`)
+      .get(`https://food-sharing-server-nu.vercel.app/my_foods?email=${user.email}`)
       .then((res) => setMyFoods(res.data));
   }, [user.email]);
   const handleDelete = (id) => {
@@ -25,7 +25,7 @@ const ManageMyFood = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/managefood/${id}`).then(() => {
+        axios.delete(`https://food-sharing-server-nu.vercel.app/managefood/${id}`).then(() => {
           const remaining = myFoods.filter((food) => food._id !== id);
           setMyFoods(remaining);
         });
@@ -40,7 +40,7 @@ const ManageMyFood = () => {
   };
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h2 className="text-3xl text-center font-bold mb-6 text-green-600">
+      <h2 className="text-3xl text-center font-bold mb-6 text-teal-400">
         Manage My Foods
       </h2>
       <p className="text-center font-medium text-gray-500 w-3/4 ml-36">
@@ -70,15 +70,13 @@ const ManageMyFood = () => {
                   />
 
                   <div>
-                    <h4 className="font-semibold text-gray-800">{food.name}</h4>
-                    <p className="text-sm text-gray-500 mb-1">
-                      {food.category}
-                    </p>
+                    <h4 className="font-bold text-md  text-gray-800">{food.name}</h4>
+                  
 
                     <div className="flex items-center gap-2">
                       <img
                         src={food.donorImage}
-                        alt="User"
+                        alt=""
                         className="w-8 h-8 rounded-full  object-cover"
                       />
                       <span className="text-sm text-gray-600">

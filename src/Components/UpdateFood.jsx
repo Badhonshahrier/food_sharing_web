@@ -31,7 +31,7 @@ const UpdateFood = () => {
     updateFood.quantityAvailable = Number(updateFood.quantityAvailable);
     console.log(updateFood);
     axios
-      .put(`http://localhost:5000/updatefood/${_id}`, updateFood)
+      .put(`https://food-sharing-server-nu.vercel.app/updatefood/${_id}`, updateFood)
       .then((res) => {
         Swal.fire({
           position: "center",

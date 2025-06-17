@@ -7,7 +7,14 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
    
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">FoodShare</h2>
+         <div className="flex">
+          <img
+              className="w-10 h-10 object-cover rounded-full"
+              src="https://i.ibb.co/TDFDqB7K/pngtree-food-logo-png-image-5687686.png"
+              alt=""
+            />
+           <h2 className="text-2xl font-bold text-white mb-4 mt-1">FoodShare</h2>
+         </div>
           <p className="text-sm">
             Join hands to reduce food waste and help those in need. Share your
             extra food — request when you need it. Together, we can make a
@@ -25,7 +32,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/featuresfoods" className="hover:text-yellow-300">
+              <a href="/availablefoods" className="hover:text-yellow-300">
                 Available Foods
               </a>
             </li>
@@ -35,7 +42,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/foodrequest" className="hover:text-yellow-300">
+              <a href="/myfoodrequest" className="hover:text-yellow-300">
                 My Requests
               </a>
             </li>
@@ -59,16 +66,16 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Follow Us</h3>
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-300 hover:text-yellow-300 text-xl">
+            <a href="" className="text-gray-300 hover:text-yellow-300 text-xl">
               <FaFacebookF />
             </a>
-            <a href="#" className="text-gray-300 hover:text-yellow-300 text-xl">
+            <a href="" className="text-gray-300 hover:text-yellow-300 text-xl">
               <FaInstagram />
             </a>
-            <a href="#" className="text-gray-300 hover:text-yellow-300 text-xl">
+            <a href="" className="text-gray-300 hover:text-yellow-300 text-xl">
               <FaLinkedinIn />
             </a>
-            <a href="#" className="text-gray-300 hover:text-yellow-300 text-xl">
+            <a href="" className="text-gray-300 hover:text-yellow-300 text-xl">
               <FaEnvelope />
             </a>
           </div>

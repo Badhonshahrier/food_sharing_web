@@ -1,4 +1,4 @@
-import { createBrowserRouter, useParams } from "react-router";
+import { createBrowserRouter } from "react-router";
 import Main_Layout from "./Main_Layout";
 import Home_Page from "../Pages/Home_Page";
 import Login from "../Pages/Login";
@@ -45,12 +45,16 @@ export const router = createBrowserRouter([
       {
         path: "/food_details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addfoods/available/${params.id}`),
-        Component: View_Details,
+          fetch(`https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <View_Details />
+          </PrivateRoutes>
+        ),
       },
       {
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addfoods/available/${params.id}`),
+          fetch(`https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`),
         Component: Modal,
       },
       {
@@ -63,7 +67,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/managemyfoods",
-        loader: () => fetch("http://localhost:5000/addfoods/available"),
+        loader: () => fetch("https://food-sharing-server-nu.vercel.app/addfoods/available"),
         element: (
           <PrivateRoutes>
             <ManageMyFood></ManageMyFood>
@@ -73,7 +77,7 @@ export const router = createBrowserRouter([
       {
         path: "/updatefood/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addfoods/available/${params.id}`),
+          fetch(`https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`),
         Component: UpdateFood,
       },
     ],

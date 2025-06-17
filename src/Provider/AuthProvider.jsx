@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/Firebase.init";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -53,6 +54,17 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      if (currentUser?.email) {
+        const userData = { email: currentUser.email };
+        axios
+          .post("https://food-sharing-server-nu.vercel.app/jwt", userData)
+          .then((res) => {
+            console.log("toke after jwt",res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     });
     return () => {
       unsubscribe();

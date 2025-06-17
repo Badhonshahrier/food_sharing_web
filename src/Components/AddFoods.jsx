@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 
 const AddFoods = () => {
   const { user } = use(AuthContext);
+  console.log("token in the context", user.accessToken);
   const handleAddFood = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +14,11 @@ const AddFoods = () => {
     newFood.quantityAvailable = Number(newFood.quantityAvailable);
 
     axios
-      .post("http://localhost:5000/addfoods", newFood)
+      .post("https://food-sharing-server-nu.vercel.app/addfoods", newFood, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => {
         console.log("Successfully added food:", res.data);
         Swal.fire({
@@ -23,7 +28,7 @@ const AddFoods = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        form.reset();
+        // form.reset();
       })
       .catch((error) => {
         console.error("Error adding food:", error);
@@ -35,8 +40,11 @@ const AddFoods = () => {
       <h2 className="text-3xl font-bold text-center text-teal-600 mb-8">
         Add New Food
       </h2>
-     <p className="text-center font-medium text-gray-500 mb-6">
-        Add new food donations with simple forms. Share details like quantity, pickup location, and expiry date. This easy-to-use feature encourages more food sharing, helps reduce food waste, and connects surplus food to people who can use it most.
+      <p className="text-center font-medium text-gray-500 mb-6">
+        Add new food donations with simple forms. Share details like quantity,
+        pickup location, and expiry date. This easy-to-use feature encourages
+        more food sharing, helps reduce food waste, and connects surplus food to
+        people who can use it most.
       </p>
       <form
         onSubmit={handleAddFood}

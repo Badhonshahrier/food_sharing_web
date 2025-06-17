@@ -1,9 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-
 const AvailableFoods = () => {
-  const [foods, setFoods] = useState([]);
   const [availableFoods, setAvailableFoods] = useState([]);
   const [isTwoColumn, setIsTwoColumn] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -12,17 +10,7 @@ const AvailableFoods = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allfoods")
-      .then((res) => {
-        setFoods(res.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/addfoods/available")
+      .get("https://food-sharing-server-nu.vercel.app/addfoods/available")
       .then((res) => {
         setAvailableFoods(res.data);
       })
@@ -34,6 +22,7 @@ const AvailableFoods = () => {
   const handleToggleColumn = () => {
     setIsTwoColumn(!isTwoColumn);
   };
+
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchText(value);
@@ -43,68 +32,72 @@ const AvailableFoods = () => {
     );
     setSearchedFoods(filtered);
   };
+
   return (
-    <div className="w-10/11  mx-auto">
-      <h1 className="text-4xl font-extrabold text-center text-teal-600 pt-10">
-        Available Foods
+    <div className="w-10/12 mx-auto">
+      <h1 className="text-5xl font-bold text-center text-emerald-600 pt-12">
+         Available Foods
       </h1>
-      <p className="text-center font-medium text-gray-500 pt-6 w-3/4 ml-36">
-        Discover a variety of fresh, surplus foods shared by generous donors in
-        your community. Browse available foods, pick what you need, and reduce
-        food waste while helping others. From fruits to cooked meals — find
-        what’s available today and request it before it’s gone. Share, save, and
-        care.
-        <br />
+      <p className="text-center font-medium text-gray-600 pt-6 max-w-3xl mx-auto">
+        Browse surplus, fresh, and homemade dishes from your community. Claim what you need, reduce waste, and spread care. Act quick — availability changes daily!
       </p>
-      <div className="flex justify-between w-11/12 mx-auto">
+
+      <div className="flex flex-col md:flex-row items-center justify-between mt-10 space-y-4 md:space-y-0">
         <input
           type="text"
           value={searchText}
           onChange={handleSearch}
-          placeholder="Search by food name"
-          className="border text-center rounded-lg"
+          placeholder="Search food by name..."
+          className="border-2 border-emerald-300 rounded-xl p-3 w-full md:w-1/2 text-center focus:ring-2 focus:ring-emerald-400 outline-none"
         />
-        <input type="search" name="search" id="" />
-        <button onClick={handleToggleColumn} className="btn btn-accent mt-10">
-          Change_Layout
+
+        <button
+          onClick={handleToggleColumn}
+          className="px-6 py-3 bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-full shadow-lg hover:scale-105 transition"
+        >
+          {isTwoColumn ? "Change_layout" : "Change_Layout"}
         </button>
       </div>
 
       <div
-        className={
+        className={`${
           isTwoColumn
-            ? "grid grid-cols-2 gap-8"
-            : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-10"
-        }
+            ? "grid grid-cols-1 md:grid-cols-2 gap-10"
+            : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        } mt-14`}
       >
-        {foods.map((food, index) => (
-          <div key={index} className="w-full"></div>
-        ))}
-
-        {/* add korer por availability and expairy date diye kora */}
-
         {foodsToDisplay.map((availableFood, index) => (
           <div
             key={index}
-            className="bg-gradient-to-r from-gray-100 to-sky-300 my-10 shadow-lg rounded-2xl p-4 flex flex-col items-center justify-center"
+            className="backdrop-blur-md bg-white/60 shadow-xl rounded-3xl overflow-hidden flex flex-col items-center p-5 space-y-5 hover:shadow-emerald-300 hover:scale-105 transition"
           >
             <img
               src={availableFood.imageURL}
               alt={availableFood.name}
-              className="w-32 h-32 object-cover rounded-lg "
+              className="w-full h-56 object-cover rounded-xl"
             />
-            <h2 className="text-xl font-semibold text-gray-800 mb-2">
-              {availableFood.name}
-            </h2>
-            <p className="text-gray-600 mb-2">{availableFood.notes}</p>
-            <p className="text-violet-700 font-medium text-lg">
-              expiryDate : {availableFood.expiryDate}
-            </p>
-            <Link to={`/food_details/${availableFood._id}`}>
-              <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
-                View Details
-              </button>
-            </Link>
+
+            <div className="w-full text-center">
+              <h2 className="text-2xl font-bold text-gray-800">
+                {availableFood.name}
+              </h2>
+              <p className="text-gray-600 mt-2">Notes : {availableFood.notes}</p>
+
+              <div className="flex justify-center gap-3 mt-3">
+                <span className="px-3 py-1 bg-emerald-200 text-emerald-800 rounded-full text-sm">
+                  {availableFood.expiryDate}
+                </span>
+                <span className="px-3 py-1 bg-orange-200 text-orange-800 rounded-full text-sm">
+                  Available
+                </span>
+              </div>
+
+              <Link to={`/food_details/${availableFood._id}`}>
+                <button className="mt-6 px-6 py-3 bg-emerald-500 text-white rounded-full hover:bg-emerald-600 transition">
+                  View Details
+                </button>
+              </Link>
+            </div>
           </div>
         ))}
       </div>

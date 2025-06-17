@@ -27,9 +27,10 @@ const Modal = () => {
     const formData = new FormData(form);
     const newFood = Object.fromEntries(formData.entries());
     newFood.status = "Requested";
+    console.log(newFood.requestedNotes); 
     console.log(newFood);
     axios
-      .patch(`http://localhost:5000/foods/${_id}`, newFood)
+      .patch(`https://food-sharing-server-nu.vercel.app/foods/${_id}`, newFood)
       .then((res) => {
         console.log(res.data);
         Swal.fire({
@@ -131,10 +132,11 @@ const Modal = () => {
         />
 
         <textarea
-          name="notes"
+          name="requestedNotes"
           placeholder="Additional Notes"
           className="textarea textarea-bordered w-full"
-        ></textarea>
+        >
+        </textarea>
 
         <button type="submit" className="btn btn-primary w-full">
           Request Food

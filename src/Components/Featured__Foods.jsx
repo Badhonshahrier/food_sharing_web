@@ -7,7 +7,7 @@ const Featured__Foods = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/featuresfoods")
+      .get("https://food-sharing-server-nu.vercel.app/featuresfoods")
       .then((res) => {
         setFoods(res.data);
       })

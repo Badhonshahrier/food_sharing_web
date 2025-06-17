@@ -4,14 +4,13 @@ import Modal from "../Components/Modal";
 
 const View_Details = () => {
   const data = useLoaderData();
-  console.log(data);
 
   return (
     <div className="my-10 px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl text-center pl-4 font-extrabold text-green-800">
           Food Details
         </h1>
-        <p className="text-center font-medium text-gray-500 w-4/6 lg:ml-60 ml-18">
+        <p className="text-center font-medium text-gray-500 w-4/6 lg:ml-60 ml-18 mt-4">
           "Discover detailed information about each shared food item, including
           its name, quantity, pickup location, expiry date, and donor details.
           Our platform ensures transparency and safety by providing clear notes
@@ -92,9 +91,9 @@ const View_Details = () => {
                     >
                       ✕
                     </button>
-                    <p className="py-4">
+             
                       <Modal></Modal>
-                    </p>
+         
                     <div className="modal-action"></div>
                   </div>
                 </dialog>
