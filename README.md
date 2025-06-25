@@ -1,12 +1,44 @@
-# React + Vite
+# 🍽️ Food Sharing Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A community-driven platform designed to reduce food waste by enabling users to donate and request surplus food items within their local areas. It connects individuals, restaurants, and organizations with those in need — fostering a sustainable and compassionate community.
 
-Currently, two official plugins are available:
+## 📸 Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![App Screenshot](./screenshot.png)
 
-## Expanding the ESLint configuration
+## 🚀 Live Link
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+👉 [Live Site](https://food-sharing-auth-9235a.web.app)
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, React Router, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** Firebase Authentication
+
+## ✨ Key Features
+
+- User registration, login, and authentication
+- Food donation submission with images and details
+- Real-time food availability updates
+- View, request, and manage listed food items
+- Role-based access (Donor/Receiver)
+- Secure API routes with token-based authorization
+- Responsive, user-friendly UI
+
+## 📦 Dependencies
+
+- React
+- React Router DOM
+- Axios
+- Firebase
+- Express.js
+- MongoDB
+- Dotenv
+- CORS
+- JSON Web Token (JWT)
+
+## 🖥️ How to Run Locally
+
+**Clone the repository**
