@@ -4,7 +4,7 @@ Food Sharing Web Application is a community-driven platform designed to reduce f
 
 ## 📸 Preview
 
-![App Screenshot](./screenshot.png)
+![App Screenshot](https://i.ibb.co/C5VQ5tJ8/Screenshot-11.png)
 
 ## 🚀 Live Link
 
