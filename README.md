@@ -1,6 +1,6 @@
 # 🍽️ Food Sharing Web Application
 
-A community-driven platform designed to reduce food waste by enabling users to donate and request surplus food items within their local areas. It connects individuals, restaurants, and organizations with those in need — fostering a sustainable and compassionate community.
+Food Sharing Web Application is a community-driven platform designed to reduce food waste by enabling users to donate and request surplus food items within their local areas. This application connects individuals, restaurants, and organizations who have excess food with those in need, fostering a more sustainable and compassionate community.
 
 ## 📸 Preview
 
@@ -30,7 +30,7 @@ A community-driven platform designed to reduce food waste by enabling users to d
 ## 📦 Dependencies
 
 - React
-- React Router DOM
+- React Router
 - Axios
 - Firebase
 - Express.js
@@ -42,3 +42,7 @@ A community-driven platform designed to reduce food waste by enabling users to d
 ## 🖥️ How to Run Locally
 
 **Clone the repository**
+
+## Client Site - https://github.com/Badhonshahrier/food_sharing_web.git
+## Server Site - https://github.com/Badhonshahrier/food_sharing_server.git
+
