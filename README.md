@@ -42,6 +42,10 @@ Food Sharing Web Application is a community-driven platform designed to reduce f
 ## 🖥️ How to Run Locally
 
 **Clone the repository**
+git clone https://github.com/Badhonshahrier/food_sharing_web.git
+cd bms-frontend
+npm install
+npm start
 
 ## Client Site - https://github.com/Badhonshahrier/food_sharing_web.git
 ## Server Site - https://github.com/Badhonshahrier/food_sharing_server.git
