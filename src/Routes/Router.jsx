@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
         path: "/food_details/:id",
         loader: ({ params }) =>
           fetch(
-            `https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`
+            `http://localhost:5000/addfoods/available/${params.id}`
           ),
         element: (
           <PrivateRoutes>
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
         path: "/requestfood/:id",
         loader: ({ params }) =>
           fetch(
-            `https://food-sharing-server-nu.vercel.app/foods/available/${params.id}`
+            `http://localhost:5000/foods/available/${params.id}`
           ),
         Component: Modal,
       },
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
       {
         path: "/managemyfoods",
         loader: () =>
-          fetch("https://food-sharing-server-nu.vercel.app/addfoods/available"),
+          fetch("http://localhost:5000/addfoods/available"),
         element: (
           <PrivateRoutes>
             <ManageMyFood></ManageMyFood>
@@ -86,7 +86,7 @@ export const router = createBrowserRouter([
         path: "/updatefood/:id",
         loader: ({ params }) =>
           fetch(
-            `https://food-sharing-server-nu.vercel.app/addfoods/available/${params.id}`
+            `http://localhost:5000/addfoods/available/${params.id}`
           ),
         Component: UpdateFood,
       },

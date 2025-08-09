@@ -31,7 +31,7 @@ const UpdateFood = () => {
     updateFood.quantityAvailable = Number(updateFood.quantityAvailable);
     console.log(updateFood);
     axios
-      .put(`https://food-sharing-server-nu.vercel.app/updatefood/${_id}`, updateFood,{
+      .put(`http://localhost:5000/updatefood/${_id}`, updateFood,{
         headers:{
           authorization:`Bearer ${user.accessToken}`
         }

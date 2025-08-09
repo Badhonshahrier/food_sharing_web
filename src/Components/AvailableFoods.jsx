@@ -11,7 +11,7 @@ const AvailableFoods = () => {
 
   useEffect(() => {
     axios
-      .get("https://food-sharing-server-nu.vercel.app/addfoods/available")
+      .get("http://localhost:5000/addfoods/available")
       .then((res) => {
         setAvailableFoods(res.data);
       })

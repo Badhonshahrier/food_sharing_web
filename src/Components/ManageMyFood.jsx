@@ -15,7 +15,7 @@ const ManageMyFood = () => {
 
     setLoading(true);
     axios
-      .get(`https://food-sharing-server-nu.vercel.app/my_foods?email=${user.email}`, {
+      .get(`http://localhost:5000/my_foods?email=${user.email}`, {
         headers: {
           authorization: `Bearer ${user.accessToken}`,
         },
@@ -42,7 +42,7 @@ const ManageMyFood = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://food-sharing-server-nu.vercel.app/managefood/${id}`, {
+          .delete(`http://localhost:5000/managefood/${id}`, {
             headers: {
               authorization: `Bearer ${user.accessToken}`,
             },

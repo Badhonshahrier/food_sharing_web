@@ -12,7 +12,7 @@ const { data: foodRequest = [] } = useQuery({
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await fetch(
-        `https://food-sharing-server-nu.vercel.app/addfoods/requested?email=${user.email}`,{
+        `http://localhost:5000/addfoods/requested?email=${user.email}`,{
           headers:{
             authorization:`Bearer ${user.accessToken}`
           }
@@ -25,7 +25,7 @@ const { data: foodRequest = [] } = useQuery({
 
   // useEffect(() => {
   //   axios
-  //     .get(`https://food-sharing-server-nu.vercel.app/addfoods/requested?email=${user.email}`)
+  //     .get(`http://localhost:5000/addfoods/requested?email=${user.email}`)
   //     .then((res) => setFoodRequest(res.data));
   // }, [user.email]);
 
