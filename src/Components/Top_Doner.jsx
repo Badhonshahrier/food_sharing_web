@@ -4,10 +4,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 const Top_Doner = () => {
   const { user } = use(AuthContext);
   return (
-      <div className="w-10/12 mx-auto my-16">
+      <div className="w-10/12 mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-teal-600 mb-4"> Reduce Waste, Spread Kindness </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center text-teal-600 pt-20"> Reduce Waste, Spread Kindness </h2>
+        <p className="text-center font-medium text-gray-500 pt-4 sm:pt-6 max-w-3xl mx-auto text-sm sm:text-base">
           Track your food requests easily. Stay connected with donors and contribute to a waste-free, caring community where no good food goes uneaten.
         </p>
       </div>
@@ -18,7 +18,7 @@ const Top_Doner = () => {
           <div className="hero-content flex-col lg:flex-row-reverse">
             <img
               src="https://i.ibb.co/5X39R2wz/Chat-GPT-Image-Jun-15-2025-10-13-45-PM.png"
-              className="max-w-sm rounded-2xl shadow-2xl"
+              className="w-70 rounded-2xl shadow-2xl"
               alt="Reduce Food Waste"
             />
             <div className="lg:pr-8">
@@ -33,7 +33,7 @@ const Top_Doner = () => {
           <div className="hero-content flex-col lg:flex-row">
             <img
               src="https://i.ibb.co/35L1XShr/Chat-GPT-Image-Jun-16-2025-01-11-34-AM.png"
-              className="max-w-sm rounded-2xl shadow-xl"
+              className="w-70 rounded-2xl shadow-xl"
               alt="Share Extra Produce"
             />
             <div className="lg:pl-8">
@@ -48,7 +48,7 @@ const Top_Doner = () => {
           <div className="hero-content flex-col lg:flex-row-reverse">
             <img
               src="https://i.ibb.co/SXF3mP6Z/Chat-GPT-Image-Jun-16-2025-01-08-20-AM.png"
-              className="max-w-sm rounded-2xl shadow-xl"
+              className="w-70 rounded-2xl shadow-xl"
               alt="Donate Leftover Food"
             />
             <div className="lg:pr-8">
@@ -63,7 +63,7 @@ const Top_Doner = () => {
           <div className="hero-content flex-col lg:flex-row">
             <img
               src="https://i.ibb.co/QFZCmV4f/Chat-GPT-Image-Jun-16-2025-01-08-23-AM.png"
-              className="max-w-sm rounded-2xl shadow-xl"
+              className="w-70 rounded-2xl shadow-xl"
               alt="Don't Let Food Go to Waste"
             />
             <div className="lg:pl-8">

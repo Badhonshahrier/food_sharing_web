@@ -3,15 +3,13 @@ import React from "react";
 const Faq = () => {
   return (
     <div className="w-10/12 mx-auto my-20">
-      <h2 className="text-3xl font-bold text-center text-teal-600 mb-6">
+      <h2 className="text-3xl font-bold text-center text-teal-600 ">
         Know Before You Share
       </h2>
-      <p className="text-center font-medium text-gray-500 mb-12">
+      <p className="text-center font-medium text-gray-500 mb-10 sm:pt-6 max-w-3xl mx-auto text-sm sm:text-base">
         "Have questions about how our food sharing community works? Find answers
         to the most common questions here. Learn how to donate, request, and
-        safely share food with others. Together, we’re reducing waste and
-        helping those in need. Check our guidelines and tips to get started
-        today!"
+        safely share food with others.
       </p>
       <div className="flex w-full flex-col lg:flex-row gap-6">
         <div className="card rounded-box w-2/3 grid grow place-items-center">

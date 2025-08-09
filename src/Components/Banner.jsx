@@ -6,10 +6,10 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <div className="hero min-h-[65vh] bg-base-200 relative">
+    <div className="hero min-h-[85vh] bg-base-200 relative">
       <div className="hero-content flex-col-reverse lg:flex-row gap-10">
         {/* Text Section */}
-        <div className="max-w-xl text-center lg:text-left">
+        <div className="max-w-xl ml-2 text-center lg:text-left">
           <h1 className="text-4xl font-bold flex flex-wrap italic mb-6">
             Share a Meal
             <MdNoMeals className="ml-2" color="orange" />

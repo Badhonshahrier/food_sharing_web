@@ -6,11 +6,11 @@ const View_Details = () => {
   const data = useLoaderData();
 
   return (
-    <div className="my-10 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl text-center pl-4 font-extrabold text-green-800">
+    <div className=" px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center text-teal-600 pt-10">
           Food Details
         </h1>
-        <p className="text-center font-medium text-gray-500 w-4/6 lg:ml-60 ml-18 mt-4">
+        <p className="text-center font-medium text-gray-500 pt-4 sm:pt-6 max-w-3xl mx-auto text-sm sm:text-base">
           "Discover detailed information about each shared food item, including
           its name, quantity, pickup location, expiry date, and donor details.
           Our platform ensures transparency and safety by providing clear notes
