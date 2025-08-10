@@ -10,7 +10,7 @@ const Banner = () => {
       <div className="hero-content flex-col-reverse lg:flex-row gap-10">
         {/* Text Section */}
         <div className="max-w-xl ml-2 text-center lg:text-left">
-          <h1 className="text-4xl font-bold flex flex-wrap italic mb-6">
+          <h1 className="text-4xl ml-18 md:ml-0 font-bold flex flex-wrap italic mb-6">
             Share a Meal
             <MdNoMeals className="ml-2" color="orange" />
             , Share a Smile

@@ -21,24 +21,17 @@ const { data: foodRequest = [] } = useQuery({
       return res.json();
     },
   });
-  // const [foodRequest, setFoodRequest] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/addfoods/requested?email=${user.email}`)
-  //     .then((res) => setFoodRequest(res.data));
-  // }, [user.email]);
 
   return (
     <div className="max-w-7xl mx-auto p-5">
-      <h2 className="text-3xl font-bold text-center text-teal-400 mt-10 mb-6">
+      <h2 className="text-3xl font-bold text-center text-teal-600 mb-4 mt-6">
         My Food Requests
       </h2>
       <p className="text-center font-medium text-gray-500 w-3/4 ml-36">
         Track your food requests easily. Stay updated on the status of foods
         you’ve requested and receive timely notifications. This feature helps
-        you connect quickly with donors and ensures you get the fresh food you
-        need, supporting community sharing and reducing waste together.
+        you connect quickly with donors and ensures you get the fresh food.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-6">

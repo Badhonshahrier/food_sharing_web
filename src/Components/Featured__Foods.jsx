@@ -67,9 +67,9 @@ const Featured__Foods = () => {
                     </p>
                   </div>
                   <Link to={`/food_details/${food._id}`}>
-                    <button className="btn btn-accent btn-sm sm:btn-md">
-                      See More
-                    </button>
+                    <button className="mt-4 px-5 py-2 bg-emerald-500 text-white rounded-full hover:bg-emerald-600 transition text-sm">
+                  See More
+                </button>
                   </Link>
                 </div>
               </div>

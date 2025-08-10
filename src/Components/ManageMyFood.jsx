@@ -68,10 +68,10 @@ const ManageMyFood = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       {/* Title */}
-      <h2 className="text-3xl text-center font-bold mb-6 text-teal-400">
+      <h2 className="text-3xl text-center mt-4 font-bold mb-6 text-teal-600">
         Manage My Foods
       </h2>
-      <p className="text-center font-medium text-gray-500 w-full md:w-3/4 mx-auto leading-relaxed">
+      <p className="text-center font-medium text-gray-500  w-full md:w-3/4 mx-auto leading-relaxed">
         Manage your donated foods effortlessly. Update food details, monitor
         expiry dates, or delete items that are no longer available. Keep your
         food donations organized and visible to those in need.

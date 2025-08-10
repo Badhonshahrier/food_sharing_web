@@ -58,10 +58,10 @@ const AvailableFoods = () => {
 
   return (
     <div className="w-10/12 mx-auto">
-      <h1 className="text-5xl font-bold text-center text-emerald-600 pt-12">
+      <h1 className="text-3xl font-bold text-center text-teal-600 mb-4 mt-6">
         Available Foods
       </h1>
-      <p className="text-center font-medium text-gray-600 pt-6 max-w-3xl mx-auto">
+      <p className="text-center font-medium text-gray-600  max-w-3xl mx-auto">
         Browse surplus, fresh, and homemade dishes from your community. Claim
         what you need, reduce waste, and spread care. Act quick — availability
         changes daily!

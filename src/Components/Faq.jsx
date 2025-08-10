@@ -14,7 +14,7 @@ const Faq = () => {
       <div className="flex w-full flex-col lg:flex-row gap-6">
         <div className="card rounded-box w-2/3 grid grow place-items-center">
           <img
-            className="rounded-lg h-full object-cover"
+            className="rounded-lg ml-40 md:ml-0 lg:ml-0 h-full object-cover"
             src="https://i.ibb.co/DPZjjj9P/istockphoto-1201642586-612x612.jpg"
             alt="FAQ Illustration"
           />
