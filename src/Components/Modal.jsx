@@ -30,7 +30,7 @@ const Modal = () => {
     console.log(requestData);
     axios
       .patch(
-         `http://localhost:5000/foods/${_id}`,   
+         `https://food-sharing-server-nu.vercel.app/foods/${_id}`,   
         requestData
       )
       .then((res) => {

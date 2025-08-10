@@ -17,7 +17,7 @@ const AddFoods = () => {
     newFood.quantityAvailable = Number(newFood.quantityAvailable);
 
     axios
-      .post("http://localhost:5000/addfoods", newFood, {
+      .post("https://food-sharing-server-nu.vercel.app/addfoods", newFood, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },

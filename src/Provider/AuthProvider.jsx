@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
       // if (currentUser?.email) {
       //   const userData = { email: currentUser.email };
       //   axios
-      //     .post("http://localhost:5000/jwt", userData)
+      //     .post("https://food-sharing-server-nu.vercel.app/jwt", userData)
       //     .then((res) => {
       //       console.log("toke after jwt",res.data);
       //     })

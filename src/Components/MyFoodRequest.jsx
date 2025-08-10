@@ -12,7 +12,7 @@ const { data: foodRequest = [] } = useQuery({
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/addfoods/requested?email=${user.email}`,{
+        `https://food-sharing-server-nu.vercel.app/addfoods/requested?email=${user.email}`,{
           headers:{
             authorization:`Bearer ${user.accessToken}`
           }
