@@ -104,7 +104,7 @@ const AvailableFoods = () => {
         {foodsToDisplay.map((availableFood, index) => (
           <div
             key={index}
-            className="min-h-[400px] backdrop-blur-md bg-white/60 shadow-xl rounded-3xl overflow-hidden flex flex-col justify-between p-5 hover:shadow-emerald-300 hover:scale-105 transition"
+            className="min-h-[400px] backdrop-blur-md bg-white/60 shadow-xl rounded-3xl overflow-hidden mb-10 flex flex-col justify-between p-5 hover:shadow-emerald-300 hover:scale-105 transition"
           >
             <img
               src={availableFood.imageURL}

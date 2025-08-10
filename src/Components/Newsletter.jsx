@@ -59,7 +59,7 @@ const Newsletter = () => {
           </button>
         </form>
 
-        <p className="mt-5 text-sm text-white">
+        <p className="mt-5 text-sm  text-white">
           We promise to respect your privacy and only send meaningful updates.
         </p>
       </div>

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   const { userLogin, googleLogin } = use(AuthContext);
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,9 +20,8 @@ const navigate=useNavigate()
           showConfirmButton: false,
           timer: 1000,
         });
-        navigate("/")
+        navigate("/");
         console.log(result);
-        
       })
       .catch((error) => {
         Swal.fire({
@@ -45,7 +44,7 @@ const navigate=useNavigate()
           showConfirmButton: false,
           timer: 1000,
         });
-        navigate('/')
+        navigate("/");
         console.log(result);
       })
       .catch((error) => {
@@ -54,8 +53,11 @@ const navigate=useNavigate()
   };
 
   return (
-    <div className="card bg-base-100 w-full max-w-sm mx-auto mt-30 shrink-0 shadow-2xl">
-      <div className="card-body">
+    <div
+      className="card bg-base-100 max-w-sm mx-auto my-23
+     shrink-0 shadow-2xl"
+    >
+      <div className="card-body ">
         <h1 className="text-4xl text-center font-extrabold">Login Now!</h1>
         <form onSubmit={handleLogin} className="fieldset">
           <label className="label text-lg font-medium">Email</label>
@@ -87,7 +89,7 @@ const navigate=useNavigate()
         <button
           type="submit"
           onClick={handleGoogle}
-          className="btn  w-3/4 ml-10 bg-teal-400 text-black border-[#e5e5e5]"
+          className="btn w-3/4 ml-10 bg-teal-400 text-black border-[#e5e5e5]"
         >
           <svg
             aria-label="Google logo"

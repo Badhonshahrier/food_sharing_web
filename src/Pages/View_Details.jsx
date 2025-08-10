@@ -21,7 +21,7 @@ const View_Details = () => {
       </div>
 
       {data ? (
-        <div className="max-w-3xl mx-auto bg-white border border-green-50 rounded-xl shadow-lg">
+        <div className="max-w-3xl mx-auto bg-white border border-green-50 rounded-xl mb-10 shadow-lg">
           <img
             src={data.imageURL}
             alt={data.name}
