@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
@@ -93,10 +94,11 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
+          <ThemeToggle className=""></ThemeToggle>
           {user ? (
             <>
               <div className="avatar">
-                <div className="w-10 rounded-full">
+                <div className="w-10 ml-2 rounded-full">
                   <img
                     src={user.photoURL}
                     alt="profile"
