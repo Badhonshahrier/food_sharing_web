@@ -49,16 +49,16 @@ const UpdateFood = () => {
       });
   };
   return (
-    <div className="max-w-2xl mx-auto py-12">
-      <h2 className="text-3xl font-bold text-center text-teal-600 mb-8">
+    <div className="max-w-2xl mx-auto py-12 ">
+      <h2 className="text-3xl font-bold text-center text-teal-600 mb-4">
         Update Food
       </h2>
       <p className="text-center font-medium text-gray-500 mb-6">
-       Keep your food listings accurate by updating details anytime. Modify quantities, change availability status, or correct information to ensure donors and recipients have the latest updates. This helps maintain trust and efficiency in the food sharing community.
+       Keep your food listings accurate by updating details anytime. Modify quantities, change availability status, or correct information to ensure donors and recipients have the latest updates.
       </p>
       <form
         onSubmit={handleUpdateFood}
-        className="card p-8 bg-base-100 shadow-xl space-y-4"
+        className="card bg-base-300 p-8 shadow-xl space-y-4"
       >
         <input
           type="text"
@@ -143,8 +143,8 @@ const UpdateFood = () => {
           required
         />
 
-        <button type="submit" className="btn btn-primary w-full">
-          update Food
+        <button type="submit" className="btn bg-emerald-500 text-white w-full">
+          Update Food
         </button>
       </form>
     </div>

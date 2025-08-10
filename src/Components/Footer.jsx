@@ -13,7 +13,7 @@ const Footer = () => {
               src="https://i.ibb.co/TDFDqB7K/pngtree-food-logo-png-image-5687686.png"
               alt=""
             />
-           <h2 className="text-2xl font-bold text-white mb-4 mt-1">FoodShare</h2>
+           <h2 className="text-2xl font-bold text-black mb-4 mt-1">FoodShare</h2>
          </div>
           <p className="text-sm">
             Join hands to reduce food waste and help those in need. Share your
@@ -24,7 +24,7 @@ const Footer = () => {
 
 
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
+          <h3 className="text-xl font-semibold text-black mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <a href="/" className="hover:text-yellow-300">
@@ -56,7 +56,7 @@ const Footer = () => {
 
 
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Contact Us</h3>
+          <h3 className="text-xl font-semibold text-black mb-4">Contact Us</h3>
           <p className="text-sm">Email: support@foodshare.com</p>
           <p className="text-sm">Phone: +880 1234 567 890</p>
           <p className="text-sm">Dhaka, Bangladesh</p>
@@ -64,7 +64,7 @@ const Footer = () => {
 
       
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Follow Us</h3>
+          <h3 className="text-xl font-semibold text-black mb-4">Follow Us</h3>
           <div className="flex space-x-4">
             <a href="" className="text-gray-300 hover:text-yellow-300 text-xl">
               <FaFacebookF />

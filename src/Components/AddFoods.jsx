@@ -6,8 +6,8 @@ import { useNavigate } from "react-router";
 
 const AddFoods = () => {
   const { user } = use(AuthContext);
-  
-  const navigate=useNavigate()
+
+  const navigate = useNavigate();
   console.log("token in the context", user.accessToken);
   const handleAddFood = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const AddFoods = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        navigate('/availablefoods')
+        navigate("/availablefoods");
         form.reset();
       })
       .catch((error) => {
@@ -131,7 +131,7 @@ const AddFoods = () => {
           required
         />
 
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-emerald-500 text-white w-full">
           Add Food
         </button>
       </form>
